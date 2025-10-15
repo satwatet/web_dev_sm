@@ -3,13 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web_Dev_SM - হডদগথগতডথড</title>
+    <title>Web_Dev_SM - High Converting Landing Page Developer</title>
+    <meta name="description" content="Professional web developer specializing in high-converting landing pages that boost sales and build brand trust. Full-stack development with HTML, CSS, JS, PHP.">
+    <meta name="keywords" content="web developer, landing page, high converting, full-stack, e-commerce, web design">
+    <meta name="author" content="Sarowar Mahmod">
+    
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         /* Variables & Base Styles */
         :root {
-            /* Dark Mode Defaults */
+            /* Light Mode Defaults */
+            --primary-color: #f8f9fa; /* Light BG */
+            --secondary-color: #ffffff; /* Card BG */
+            --accent-color: #007bff; /* Blue Accent */
+            --text-color: #212529; /* Dark Text */
+            --text-secondary: #6c757d; /* Secondary Text */
+            --modal-bg: rgba(255, 255, 255, 0.85);
+            --box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        /* Dark Mode Variables */
+        body.dark-mode {
             --primary-color: #0a192f; /* Deep Navy/Dark Blue */
             --secondary-color: #112240; /* Slightly lighter dark blue */
             --accent-color: #64ffda; /* Cyan/Mint Green */
@@ -17,58 +37,87 @@
             --text-secondary: #8892b0; /* Secondary text */
             --modal-bg: rgba(0, 0, 0, 0.85);
             --box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            --gradient: linear-gradient(135deg, #0a192f 0%, #112240 100%);
         }
 
-        /* Light Mode Variables */
-        body.light-mode {
-            --primary-color: #f0f4f8; /* Light BG */
-            --secondary-color: #ffffff; /* Card BG */
-            --accent-color: #007bff; /* Blue Accent */
-            --text-color: #1f2937; /* Dark Text */
-            --text-secondary: #4b5563; /* Secondary Text */
-            --modal-bg: rgba(255, 255, 255, 0.85);
-            --box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: var(--primary-color);
             color: var(--text-color);
-            margin: 0;
-            scroll-behavior: smooth;
             line-height: 1.6;
             transition: background 0.5s, color 0.5s;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
         
         /* Utility */
         .color-accent { color: var(--accent-color); }
         .text-center { text-align: center; }
+        .section-padding { padding: 100px 0; }
+        .mt-20 { margin-top: 20px; }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-40 { margin-bottom: 40px; }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
 
         /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
-            background: rgba(10, 25, 47, 0.95);
-            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             transition: all 0.3s;
         }
 
-        body.light-mode nav {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        body.dark-mode nav {
+            background: rgba(10, 25, 47, 0.95);
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
 
         .logo {
@@ -90,9 +139,11 @@
             align-items: center;
             justify-content: center;
         }
+        
         .theme-toggle:hover {
             color: var(--accent-color);
         }
+        
         .theme-toggle svg {
             fill: currentColor;
         }
@@ -101,10 +152,9 @@
             list-style: none;
             display: flex;
             gap: 25px;
-            margin-right: auto; /* Push the toggle and hamburger to the right */
+            margin-right: auto;
             margin-left: 20px;
         }
-        /* Existing nav-links and other styles remain the same */
 
         .nav-links a {
             text-decoration: none;
@@ -112,6 +162,7 @@
             transition: color 0.3s, transform 0.3s;
             padding: 5px 0;
             position: relative;
+            font-weight: 500;
         }
         
         .nav-links a::after {
@@ -127,6 +178,7 @@
         .nav-links a:hover {
             color: var(--accent-color);
         }
+        
         .nav-links a:hover::after {
             width: 100%;
         }
@@ -136,9 +188,19 @@
             align-items: center;
         }
         
-        .hamburger { display: none; cursor: pointer; margin-right: 20px; }
-        .hamburger div { width: 25px; height: 3px; background-color: var(--text-color); margin: 5px 0; transition: 0.4s; }
-
+        .hamburger { 
+            display: none; 
+            cursor: pointer; 
+            margin-right: 20px; 
+        }
+        
+        .hamburger div { 
+            width: 25px; 
+            height: 3px; 
+            background-color: var(--text-color); 
+            margin: 5px 0; 
+            transition: 0.4s; 
+        }
 
         /* Buttons */
         .btn {
@@ -146,25 +208,29 @@
             margin: 10px 15px 10px 0;
             border-radius: 5px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.3s;
             display: inline-block;
             cursor: pointer;
             text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
         }
         
         .btn-primary {
              background-color: var(--accent-color);
              color: var(--primary-color);
              border: 2px solid var(--accent-color);
-             box-shadow: 3px 3px 0 var(--accent-color);
+             box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
         }
         
         .btn-primary:hover {
             background-color: transparent;
             color: var(--accent-color);
-            transform: translate(-3px, -3px);
-            box-shadow: 6px 6px 0 var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 123, 255, 0.4);
         }
 
         .btn-secondary {
@@ -178,6 +244,14 @@
             color: var(--primary-color);
             transform: translateY(-2px);
         }
+        
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
 
         /* Hero Section */
         #home {
@@ -185,11 +259,28 @@
             display: flex;
             align-items: center;
             padding-top: 80px;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.ibb.co.com/G4CHwDVc/Screenshot-2025-1014-123507.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: -1;
         }
         
         .hero-content {
             display: flex;
-            flex-direction: column; /* Stack vertically */
+            flex-direction: column;
             gap: 50px;
         }
 
@@ -204,29 +295,31 @@
             flex: 1;
             animation: fadeIn 1s ease-in;
         }
-        /* Existing hero-text styles remain the same */
         
         .hero-text .greeting {
             color: var(--accent-color);
             font-size: 1.1rem;
             margin-bottom: 10px;
             display: block;
+            font-weight: 500;
         }
 
         .hero-text h1 {
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             line-height: 1.2;
             margin: 0;
+            font-weight: 700;
         }
         
         .hero-text h2 {
-             font-size: clamp(2rem, 4vw, 3rem);
+             font-size: clamp(1.5rem, 4vw, 2rem);
              color: var(--text-secondary);
              margin: 5px 0 20px;
+             font-weight: 500;
         }
 
         .hero-text .tagline {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
             margin: 20px 0;
             max-width: 600px;
@@ -244,11 +337,15 @@
             height: auto;
             border-radius: 8px;
             border: 2px solid var(--accent-color);
-            box-shadow: 0 0 10px var(--accent-color);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
             transition: transform 0.5s;
         }
         
-        /* New: Hero Summary Cards (Constraint 1) */
+        .hero-img img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Hero Summary Cards */
         .hero-cards-summary {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -260,26 +357,29 @@
 
         .summary-card {
             background: var(--secondary-color);
-            padding: 20px;
-            border-radius: 8px;
+            padding: 25px;
+            border-radius: 10px;
             border-left: 3px solid var(--accent-color);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--box-shadow);
         }
 
         .summary-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
         }
 
         .summary-card i {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--accent-color);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .summary-card h4 {
             color: var(--text-color);
             margin: 5px 0;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .summary-card p {
@@ -287,10 +387,8 @@
             font-size: 0.95rem;
             margin: 0;
         }
-        /* End: Hero Summary Cards */
 
-
-        /* Sections (Existing styles remain the same) */
+        /* Sections */
         section {
             padding: 100px 0;
             opacity: 0;
@@ -311,8 +409,8 @@
             position: relative;
             display: inline-block;
             width: 100%;
+            font-weight: 700;
         }
-        /* Existing section-title styles remain the same */
         
         h2.section-title::before {
             content: '---';
@@ -328,30 +426,86 @@
             font-size: 1.5rem;
         }
         
-        /* Existing Why Landing Page, Services, Projects, Process, Demo, Why Choose Us styles remain the same */
+        /* Why Landing Page Section */
         #why-landing-page .reasons-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px;
-        }
-        #why-landing-page .reason-card {
-            background: var(--secondary-color);
-            padding: 25px;
-            border-radius: 8px;
-            border-top: 5px solid var(--accent-color);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        #why-landing-page .reason-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--box-shadow);
-        }
-        #why-landing-page .reason-card h4 {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            margin-top: 0;
+            gap: 25px;
         }
         
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        #why-landing-page .reason-card {
+            background: var(--secondary-color);
+            padding: 30px;
+            border-radius: 10px;
+            border-top: 5px solid var(--accent-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--box-shadow);
+        }
+        
+        #why-landing-page .reason-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+        
+        #why-landing-page .reason-card h4 {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        #why-landing-page .reason-card p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        /* Tech Stack Section */
+        #tech-stack {
+            background: var(--secondary-color);
+            border-radius: 10px;
+        }
+        
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+            transition: transform 0.3s;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tech-item i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .tech-item span {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        /* Services Section */
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+        }
+        
         .service-card { 
             background: var(--secondary-color); 
             padding: 30px; 
@@ -359,20 +513,92 @@
             box-shadow: var(--box-shadow); 
             text-align: center;
             transition: all 0.3s;
-            border-bottom: 5px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent-color);
+        }
+        
+        .service-card.highlight::before {
+            background: linear-gradient(90deg, #ff7e5f, #feb47b);
+        }
+        
+        .service-card.premium::before {
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+        }
+        
         .service-card:hover { 
-            transform: scale(1.03); 
-            background: var(--primary-color); /* Adjusted to use primary on hover */
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
         }
-        .service-card h3 { color: var(--accent-color); margin-top: 0; font-size: 1.8rem; }
-        .service-card .price { font-size: 2.2rem; font-weight: bold; margin-bottom: 15px; }
-        .service-card ul { list-style: none; padding: 0; text-align: left; margin: 20px 0; }
-        .service-card ul li { margin-bottom: 8px; color: var(--text-secondary); }
-        .service-card ul li i { margin-right: 10px; color: var(--accent-color); }
-        .service-card .btn-group { display: flex; justify-content: center; flex-wrap: wrap; margin-top: 15px; }
-
-        .projects-container { position: relative; }
+        
+        .service-card h3 { 
+            color: var(--text-color); 
+            margin-top: 0; 
+            font-size: 1.8rem; 
+            font-weight: 600;
+        }
+        
+        .service-card .price { 
+            font-size: 2.2rem; 
+            font-weight: bold; 
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+        
+        .service-card ul { 
+            list-style: none; 
+            padding: 0; 
+            text-align: left; 
+            margin: 20px 0; 
+        }
+        
+        .service-card ul li { 
+            margin-bottom: 12px; 
+            color: var(--text-secondary); 
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .service-card ul li i { 
+            margin-right: 10px; 
+            color: var(--accent-color);
+            margin-top: 3px;
+        }
+        
+        .service-card .btn-group { 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin-top: 20px; 
+        }
+        
+        .recommended-badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: 600;
+            font-size: 0.8rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        /* Projects Section */
+        .projects-container { 
+            position: relative; 
+        }
+        
         .projects-gallery {
             display: flex;
             overflow-x: auto;
@@ -380,6 +606,7 @@
             gap: 30px;
             padding-bottom: 25px;
         }
+        
         .project-card {
             flex: 0 0 320px;
             scroll-snap-align: start;
@@ -387,13 +614,44 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--box-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            border-bottom: 2px solid var(--accent-color); 
             transition: transform 0.3s;
         }
-        .project-card:hover { transform: translateY(-5px); }
-        .project-card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 2px solid var(--accent-color); }
-        .project-info { padding: 20px; text-align: center; }
-        .project-info h3 { margin-top: 0; }
         
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .project-info { 
+            padding: 20px; 
+            text-align: center; 
+        }
+        
+        .project-info h3 { 
+            margin-top: 0; 
+            color: var(--text-color);
+            font-size: 1.3rem;
+        }
+        
+        .project-info p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* Process Section */
         #process .process-steps {
             display: flex;
             justify-content: space-around;
@@ -401,25 +659,40 @@
             gap: 30px;
             margin-top: 40px;
         }
+        
         #process .step-card {
             flex-basis: 300px;
             text-align: center;
             background: var(--secondary-color);
             padding: 30px;
             border-radius: 10px;
-            transition: background 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--box-shadow);
         }
+        
+        #process .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+        
         #process .step-card i {
             font-size: 3rem;
             color: var(--accent-color);
             margin-bottom: 15px;
         }
+        
         #process .step-card h4 {
             font-size: 1.5rem;
             color: var(--text-color);
             margin-top: 10px;
+            margin-bottom: 15px;
         }
         
+        #process .step-card p {
+            color: var(--text-secondary);
+        }
+        
+        /* Demo Section */
         #demo {
              background: var(--secondary-color);
              padding: 100px 0;
@@ -427,79 +700,384 @@
              margin-top: 50px;
         }
         
+        /* Benefits Section */
         .why-choose-us-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 30px;
         }
+        
         .feature-item {
             display: flex;
             align-items: center;
-            background: var(--secondary-color); /* Adjusted for better light/dark mode contrast */
+            background: var(--secondary-color);
             padding: 20px;
             border-radius: 8px;
             border-left: 5px solid var(--accent-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--box-shadow);
         }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+        
         .feature-item i {
             font-size: 2rem;
             color: var(--accent-color);
             margin-right: 15px;
         }
-        .feature-item p { margin: 0; font-weight: 500; }
         
-        /* Modal (Popup) Styles (Same as original but uses new variables) */
-        .modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: var(--modal-bg); backdrop-filter: blur(5px); }
-        .modal-content { background-color: var(--secondary-color); margin: 10% auto; padding: 30px; border: 1px solid var(--accent-color); width: 90%; max-width: 600px; border-radius: 10px; position: relative; animation: slideIn 0.5s; }
-        .close-btn { color: #aaa; position: absolute; top: 10px; right: 25px; font-size: 28px; font-weight: bold; cursor: pointer; }
-        .close-btn:hover { color: var(--text-color); }
-        .video-container { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */ }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 5px; }
-        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .modal-features li i { color: var(--accent-color); margin-right: 10px; }
-
-        /* Responsive (Same as original) */
+        .feature-item p { 
+            margin: 0; 
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        /* Contact Section */
+        #contact {
+            background: var(--secondary-color);
+            border-radius: 10px;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            width: 40px;
+            text-align: center;
+        }
+        
+        .contact-item h4 {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+        
+        .contact-item p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        
+        .contact-form {
+            background: var(--primary-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--secondary-color);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+            border-radius: 5px;
+            color: var(--text-color);
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+        
+        /* Modal (Popup) Styles */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 1001; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: var(--modal-bg); 
+            backdrop-filter: blur(5px); 
+        }
+        
+        .modal-content { 
+            background-color: var(--secondary-color); 
+            margin: 5% auto; 
+            padding: 30px; 
+            border: 1px solid var(--accent-color); 
+            width: 90%; 
+            max-width: 600px; 
+            border-radius: 10px; 
+            position: relative; 
+            animation: slideIn 0.5s; 
+        }
+        
+        .close-btn { 
+            color: #aaa; 
+            position: absolute; 
+            top: 10px; 
+            right: 25px; 
+            font-size: 28px; 
+            font-weight: bold; 
+            cursor: pointer; 
+        }
+        
+        .close-btn:hover { 
+            color: var(--text-color); 
+        }
+        
+        .video-container { 
+            position: relative; 
+            width: 100%; 
+            height: 0; 
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */ 
+        }
+        
+        .video-container iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            border-radius: 5px; 
+        }
+        
+        @keyframes slideIn { 
+            from { 
+                transform: translateY(-50px); 
+                opacity: 0; 
+            } to { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        }
+        
+        .modal-features li i { 
+            color: var(--accent-color); 
+            margin-right: 10px; 
+        }
+        
+        /* Hosting Details Modal */
+        #hosting-modal .modal-content {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        #hosting-modal h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        #hosting-modal p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        #hosting-modal ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        #hosting-modal li {
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--secondary-color);
+        }
+        
+        footer p {
+            color: var(--text-secondary);
+            margin: 5px 0;
+        }
+        
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
                 position: fixed;
-                top: 50px; 
+                top: 60px; 
                 right: 0;
                 background: var(--primary-color);
                 width: 60%;
-                height: 100vh;
+                height: calc(100vh - 60px);
                 flex-direction: column;
                 align-items: center;
                 gap: 30px;
                 padding-top: 40px;
                 transform: translateX(100%);
                 transition: transform 0.5s ease-in-out;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
             }
+            
             .nav-links.nav-active {
                 display: flex;
                 transform: translateX(0);
             }
+            
             .hamburger {
                 display: block;
             }
+            
             .hero-main {
                 flex-direction: column-reverse;
                 text-align: center;
             }
-            .hero-text h1, .hero-text h2 { text-align: center; }
-            .cta-buttons { text-align: center; }
-            .hero-img { flex-basis: auto; margin-bottom: 30px; }
-            .services-grid, .why-choose-us-grid { grid-template-columns: 1fr; }
-            #process .process-steps { flex-direction: column; }
+            
+            .hero-text h1, .hero-text h2 { 
+                text-align: center; 
+            }
+            
+            .cta-buttons { 
+                text-align: center; 
+            }
+            
+            .hero-img { 
+                flex-basis: auto; 
+                margin-bottom: 30px; 
+            }
+            
+            .services-grid, .why-choose-us-grid { 
+                grid-template-columns: 1fr; 
+            }
+            
+            #process .process-steps { 
+                flex-direction: column; 
+            }
+            
+            .tech-grid {
+                gap: 20px;
+            }
+            
+            .tech-item {
+                width: 80px;
+            }
+            
+            .tech-item i {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h2.section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.3rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+            
+            .modal-content {
+                margin: 10% auto;
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Navigation -->
     <nav>
         <div class="logo">Web_<span class="color-accent">Dev</span>_SM</div>
         <div class="nav-main-area">
-            <!-- Light/Dark Mode Toggle (Constraint 3) -->
+            <!-- Light/Dark Mode Toggle -->
             <div class="theme-toggle" id="theme-toggle" title="Light/Dark Mode">
                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                     <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.76 5.572a.75.75 0 0 0-1.06 1.06l1.59 1.59a.75.75 0 0 0 1.06-1.06l-1.59-1.59ZM6.344 12.75H3a.75.75 0 0 1 0-1.5h3.344a.75.75 0 0 1 0 1.5Zm-.087 5.178a.75.75 0 0 0 1.061 1.061l1.59-1.59a.75.75 0 0 0-1.06-1.06l-1.59 1.59ZM12 18.75a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0v-2.25a.75.75 0 0 1 .75-.75ZM15.289 17.43l1.59 1.59a.75.75 0 1 0 1.06-1.06l-1.59-1.59a.75.75 0 0 0-1.06 1.06ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0ZM21 11.25H17.656a.75.75 0 0 1 0 1.5H21a.75.75 0 0 1 0-1.5Zm-4.994-5.602a.75.75 0 0 0 1.06-1.06l-1.59-1.59a.75.75 0 1 0-1.06 1.06l1.59 1.59Z" />
@@ -508,9 +1086,10 @@
             
             <ul class="nav-links">
                 <li><a href="#home">হোম</a></li>
-                <li><a href="#why-landing-page">কেন দরকার</a></li>
+                <li><a href="#why-landing-page">কেন Landing Page</a></li>
+                <li><a href="#tech-stack">Tech Stack</a></li>
                 <li><a href="#projects">প্রোজেক্ট</a></li>
-                <li><a href="#benefits">সুবিধাসমূহ</a></li>
+                <li><a href="#benefits">সুবিধা</a></li>
                 <li><a href="#services">সার্ভিস</a></li>
                 <li><a href="#contact">যোগাযোগ</a></li>
             </ul>
@@ -522,14 +1101,20 @@
         </div>
     </nav>
 
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <main>
+        <!-- Hero Section -->
         <section id="home">
             <div class="container hero-content">
                 <div class="hero-main">
                     <div class="hero-text">
-                        <span class="greeting">Hello, Iam Sarowar Mahomd</span>
-                        <h1>আপনার Business <span class="color-accent">বৃদ্ধি করতে</span> High-convarting landing page তৈরি করুন।</h1>
-                        <h2>স্বল্প সময়ে, কম খরচে সেলস বাড়াতে এবং ব্র্যান্ড ট্রাস্ট তৈরি করতে আমি সাহায্য করি।</h2>
+                        <span class="greeting">Hello, I'm Sarowar Mahmod</span>
+                        <h1>High-Converting Landing Page তৈরি করে <span class="color-accent">আপনার Business বৃদ্ধি করুন</span></h1>
+                        <h2>স্বল্প সময়ে, কম খরচে সেলস বাড়াতে এবং ব্র্যান্ড ট্রাস্ট তৈরি করতে আমি সাহায্য করি।</h2>
                         <p class="tagline">ফুল-স্ট্যাক ডেভেলপমেন্ট (HTML, CSS, JS, PHP) এবং ই-কমার্স ল্যান্ডিং পেজে আমার দীর্ঘ দিনের অভিজ্ঞতা আপনার ব্যবসার সফলতাকে নিশ্চিত করবে।</p>
                         <div class="cta-buttons">
                             <a href="https://wa.me/8801748771039" target="_blank" class="btn btn-primary"><i class="fab fa-whatsapp"></i> এখনই কথা বলুন</a>
@@ -541,17 +1126,17 @@
                     </div>
                 </div>
 
-                <!-- 3 separate cards (Constraint 1) -->
+                <!-- Hero Summary Cards -->
                 <div class="hero-cards-summary">
                     <div class="summary-card">
                         <i class="fas fa-chart-line"></i>
-                        <h4>রূপান্তরকারী ডিজাইন</h4>
-                        <p>High-conversion রেট নিশ্চিত করতে আধুনিক ও কার্যকর High convarting landing page ডিজাইন।</p>
+                        <h4>High-Converting Design</h4>
+                        <p>High-conversion রেট নিশ্চিত করতে আধুনিক ও কার্যকর Landing Page ডিজাইন।</p>
                     </div>
                     <div class="summary-card">
                         <i class="fas fa-handshake"></i>
                         <h4>সেলস ও ট্রাস্ট বৃদ্ধি</h4>
-                        <p>স্বল্প সময়ে, কম খরচে সেলস বাড়াতে ও প্রফেশনাল ব্র্যান্ড ট্রাস্ট তৈরি করতে সাহায্য করি।</p>
+                        <p>স্বল্প সময়ে, কম খরচে সেলস বাড়াতে ও প্রফেশনাল ব্র্যান্ড ট্রাস্ট তৈরি করতে সাহায্য করি।</p>
                     </div>
                     <div class="summary-card">
                         <i class="fas fa-code"></i>
@@ -562,17 +1147,17 @@
             </div>
         </section>
 
-        <!-- 1. কেন landing page দরকার section (Constraint 2) -->
+        <!-- Why Landing Page Section -->
         <section id="why-landing-page" class="container">
-            <h2 class="section-title">কেন আপনার High convarting landing page দরকার?</h2>
+            <h2 class="section-title">কেন আপনার High-Converting Landing Page দরকার?</h2>
              <div class="reasons-grid">
                 <div class="reason-card">
-                    <h4><i class="fas fa-clock"></i> সময় সাশ্রয়</h4>
+                    <h4><i class="fas fa-clock"></i> সময় সাশ্রয়</h4>
                     <p>বারবার কাস্টমারের সাথে মেসেজে আলাপচারিতা না করে, স্বয়ংক্রিয়ভাবে অর্ডার সংগ্রহ করুন।</p>
                 </div>
                 <div class="reason-card">
                     <h4><i class="fas fa-chart-line"></i> সেলস বৃদ্ধি</h4>
-                    <p>একটি সুবিন্যস্ত পেজে কাস্টমারকে সমস্ত তথ্য ও অফার দেখিয়ে অর্ডারের হার বাড়ান।</p>
+                    <p>একটি সুবিন্যস্ত পেজে কাস্টমারকে সমস্ত তথ্য ও অফার দেখিয়ে অর্ডারের হার বাড়ান।</p>
                 </div>
                 <div class="reason-card">
                     <h4><i class="fas fa-fingerprint"></i> ট্র্যাকিং সুবিধা</h4>
@@ -585,53 +1170,89 @@
             </div>
         </section>
         
-        <!-- 2. Recent work section (Constraint 2) -->
+        <!-- Tech Stack Section -->
+        <section id="tech-stack" class="container">
+            <h2 class="section-title">আমার Tech Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-php"></i>
+                    <span>PHP</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-react"></i>
+                    <span>React</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
         <section id="projects" class="container">
-            <h2 class="section-title">Recent Work ↪↪</h2>
+            <h2 class="section-title">সাম্প্রতিক প্রোজেক্ট</h2>
             <div class="projects-container">
                 <div class="projects-gallery">
                     <div class="project-card">
-                        <img src="https://i.ibb.co.com/G4CHwDVc/Screenshot-2025-1014-123507.png/xqz2X4qm/Screenshot-2025-1014-090605.png/320x200?text=Basic+Perfume" alt="Basic Perfume Demo">
+                        <img src="https://i.ibb.co.com/G4CHwDVc/Screenshot-2025-1014-123507.png" alt="Perfume Advanced Project">
                         <div class="project-info">
                             <h3>Perfume (Advanced)</h3>
-                            <a href="https://satwatet.github.io/perfume_advanced/" target="_blank" class="btn btn-primary">visit website</a>
+                            <p>একটি প্রিমিয়াম ই-কমার্স ল্যান্ডিং পেজ যা লাক্সারি পারফিউম ব্র্যান্ডের জন্য তৈরি।</p>
+                            <a href="https://satwatet.github.io/perfume_advanced/" target="_blank" class="btn btn-primary">ডেমো দেখুন</a>
                         </div>
                     </div>
                      <div class="project-card">
-                        <img src="https://i.ibb.co.com/x8R0SYNL/Screenshot-2025-1014-090633.png/320x200?text=Standard+Nut" alt="Standard Nut Demo">
+                        <img src="https://i.ibb.co.com/x8R0SYNL/Screenshot-2025-1014-090633.png" alt="Nut Standard Project">
                         <div class="project-info">
                             <h3>Nut (Standard)</h3>
-                             <a href="https://satwatet.github.io/nut_standard/" target="_blank" class="btn btn-primary">visit website</a>
+                            <p>একটি প্রফেশনাল ল্যান্ডিং পেজ যা হেলথ সাপ্লিমেন্ট ব্র্যান্ডের জন্য তৈরি।</p>
+                             <a href="https://satwatet.github.io/nut_standard/" target="_blank" class="btn btn-primary">ডেমো দেখুন</a>
                         </div>
                     </div>
                      <div class="project-card">
-                        <img src="https://i.ibb.co.com/Xx7Djby0/Screenshot-2025-1014-090718.png/320x200?text=Advanced+Honey" alt="Advanced Honey Demo">
+                        <img src="https://i.ibb.co.com/Xx7Djby0/Screenshot-2025-1014-090718.png" alt="Honey Advanced Project">
                         <div class="project-info">
                             <h3>Honey (Advanced)</h3>
-                             <a href="https://satwatet.github.io/honey_advanced/" target="_blank" class="btn btn-primary">visit website</a>
+                            <p>একটি সুন্দর ল্যান্ডিং পেজ যা অর্গানিক হানি ব্র্যান্ডের জন্য তৈরি।</p>
+                             <a href="https://satwatet.github.io/honey_advanced/" target="_blank" class="btn btn-primary">ডেমো দেখুন</a>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://i.ibb.co.com/xqz2X4qm/Screenshot-2025-1014-090605.png/320x200?text=Advanced+Walnut" alt="Advanced Walnut Demo">
+                        <img src="https://i.ibb.co.com/xqz2X4qm/Screenshot-2025-1014-090605.png" alt="Perfume Standard Project">
                         <div class="project-info">
-                            <h3>perfume (standard)</h3>
-                             <a href="https://sarowar.top/" target="_blank" class="btn btn-primary">visit website</a>
+                            <h3>Perfume (Standard)</h3>
+                            <p>একটি মার্জিত ল্যান্ডিং পেজ যা পারফিউম ব্র্যান্ডের জন্য তৈরি।</p>
+                             <a href="https://sarowar.top/" target="_blank" class="btn btn-primary">ডেমো দেখুন</a>
                         </div>
                     </div>
                      <div class="project-card">
-                        <img src="https://i.ibb.co.com/Jw6Nx8YJ/Screenshot-2025-1014-125131.png/320x200?text=Basic+Badam+Khaja" alt="Basic Badam Khaja Demo">
+                        <img src="https://i.ibb.co.com/Jw6Nx8YJ/Screenshot-2025-1014-125131.png" alt="Badam Khaja Basic Project">
                         <div class="project-info">
                             <h3>বাদামখাজা (Basic)</h3>
-                             <a href="https://satwatet.github.io/-_-_basic/" target="_blank" class="btn btn-primary">visit website</a>
+                            <p>একটি সিম্পল কিন্তু কার্যকর ল্যান্ডিং পেজ যা ট্র্যাডিশনাল মিষ্টির জন্য।</p>
+                             <a href="https://satwatet.github.io/-_-_basic/" target="_blank" class="btn btn-primary">ডেমো দেখুন</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. আমার ক্লায়েন্টদের জন্য সেরা সুবিধা section (Constraint 2) -->
+        <!-- Benefits Section -->
         <section id="benefits" class="container">
-            <h2 class="section-title">আমার ক্লায়েন্টদের জন্য সেরা সুবিধা</h2>
+            <h2 class="section-title">আমার ক্লায়েন্টদের জন্য বিশেষ সুবিধা</h2>
              <div class="why-choose-us-grid">
                  <div class="feature-item">
                      <i class="fas fa-shield-alt"></i>
@@ -643,7 +1264,7 @@
                  </div>
                  <div class="feature-item">
                      <i class="fas fa-database"></i>
-                     <p>লাইফটাইম ফ্রি হোস্টিং এবং ডাটাবেস সুবিধা।</p>
+                     <p>লাইফটাইম ফ্রি <a href="#" id="hosting-link-1" class="color-accent">Free hosting details</a> এবং ডাটাবেস সুবিধা।</p>
                  </div>
                  <div class="feature-item">
                      <i class="fas fa-bullseye"></i>
@@ -652,17 +1273,17 @@
              </div>
         </section>
 
-        <!-- 4. আমার সার্ভিস প্যাকেজসমূহ section (Constraint 2) -->
+        <!-- Services Section -->
         <section id="services" class="container">
-          <h2 class="section-title">আমার সার্ভিস প্যাকেজসমূহ</h2>
+          <h2 class="section-title">সার্ভিস প্যাকেজসমূহ</h2>
           <div class="services-grid">
-            <!-- Package Cards (Content remains the same) -->
+            <!-- Basic Package -->
             <div class="service-card">
-              <h3>বেসিক (Basic)</h3>
+              <h3>বেসিক</h3>
               <p class="price">৳1050</p>
               <ul>
                 <li><i class="fas fa-check-circle"></i> একদম নতুনদের জন্য উপযুক্ত 🌱</li>
-                <li><i class="fas fa-check-circle"></i> ফ্রি হোস্টিং ও SSL সার্টিফিকেট</li>
+                <li><i class="fas fa-check-circle"></i> ফ্রি <a href="#" id="hosting-link-2" class="color-accent">Free hosting details</a> ও SSL সার্টিফিকেট</li>
                 <li><i class="fas fa-check-circle"></i> ১ বার ফ্রি আপডেট (লেখা/ইমেজ পরিবর্তন)</li>
                 <li><i class="fas fa-check-circle"></i> অর্ডার কন্ট্রোল অ্যাডমিন প্যানেল</li>
                 <li><i class="fas fa-check-circle"></i> ১ মাস বেসিক সাপোর্ট</li>
@@ -670,12 +1291,14 @@
                 <li><i class="fas fa-times-circle" style="color:#e74c3c;"></i> SEO ও WhatsApp সাপোর্ট নেই</li>
               </ul>
               <div class="btn-group">
-                <a href="https://satwatet.github.io/-_-_basic/" target="_blank" class="btn btn-secondary">Demo (বাদাম খাজা)</a>
+                <a href="https://satwatet.github.io/-_-_basic/" target="_blank" class="btn btn-secondary">ডেমো</a>
                 <span class="btn btn-primary see-more-btn" data-modal="basic-modal">বিস্তারিত দেখুন</span>
               </div>
             </div>
         
+            <!-- Standard Package -->
             <div class="service-card highlight">
+              <div class="recommended-badge">Recommended</div>
               <h3>⭐ স্ট্যান্ডার্ড (Best Seller)</h3>
               <p class="price">৳1450</p>
               <ul>
@@ -689,13 +1312,14 @@
                 <li><i class="fas fa-times-circle" style="color:#e74c3c;"></i> Bing SEO / WhatsApp সাপোর্ট নেই</li>
               </ul>
               <div class="btn-group">
-                <a href="https://satwatet.github.io/nut_standard/" target="_blank" class="btn btn-secondary">Demo (Nut)</a>
+                <a href="https://satwatet.github.io/nut_standard/" target="_blank" class="btn btn-secondary">ডেমো</a>
                 <span class="btn btn-primary see-more-btn" data-modal="standard-modal">বিস্তারিত দেখুন</span>
               </div>
             </div>
         
+            <!-- Advanced Package -->
             <div class="service-card premium">
-              <h3>🔥 অ্যাডভান্সড (Advanced)</h3>
+              <h3>🔥 অ্যাডভান্সড</h3>
               <p class="price">৳2250</p>
               <ul>
                 <li><i class="fas fa-check-circle"></i> সম্পূর্ণ প্রিমিয়াম সলিউশন 💼</li>
@@ -708,48 +1332,113 @@
                 <li><i class="fas fa-check-circle"></i> WhatsApp Extra Support</li>
               </ul>
               <div class="btn-group">
-                <a href="https://satwatet.github.io/honey_advanced/" target="_blank" class="btn btn-secondary">Demo (Honey)</a>
+                <a href="https://satwatet.github.io/honey_advanced/" target="_blank" class="btn btn-secondary">ডেমো ১</a>
+                <a href="https://sarwarn8n-gif.github.io/perfume" target="_blank" class="btn btn-secondary">ডেমো ২</a>
                 <span class="btn btn-primary see-more-btn" data-modal="advanced-modal">বিস্তারিত দেখুন</span>
               </div>
             </div>
-        
           </div>
         </section>
 
-        <!-- 5. কাজের প্রক্রিয়া: খুব সহজ ৩টি ধাপ section (Constraint 2) -->
+        <!-- Process Section -->
         <section id="process" class="container text-center">
              <h2 class="section-title">কাজের প্রক্রিয়া: খুব সহজ ৩টি ধাপ</h2>
              <div class="process-steps">
                  <div class="step-card">
                      <i class="fas fa-comments"></i>
                      <h4>১. আলোচনা ও পরিকল্পনা</h4>
-                     <p>আপনার পণ্যের ধারণা, লক্ষ্য এবং প্রয়োজনীয়তা সম্পর্কে আলোচনা করি।</p>
+                     <p>আপনার পণ্যের ধারণা, লক্ষ্য এবং প্রয়োজনীয়তা সম্পর্কে আলোচনা করি।</p>
                  </div>
                  <div class="step-card">
                      <i class="fas fa-code"></i>
                      <h4>২. ডিজাইন ও ডেভেলপমেন্ট</h4>
-                     <p>উচ্চ-রূপান্তরকারী কৌশল (Conversion Strategy) অনুসরণ করে ডিজাইন ও কোডিং করা হয়।</p>
+                     <p>উচ্চ-রূপান্তরকারী কৌশল (Conversion Strategy) অনুসরণ করে ডিজাইন ও কোডিং করা হয়।</p>
                  </div>
                  <div class="step-card">
                      <i class="fas fa-paper-plane"></i>
                      <h4>৩. রিভিউ ও ডেলিভারি</h4>
-                     <p>আপনার ফাইনাল রিভিউয়ের পর ওয়েবসাইট লাইভ করে সমস্ত ফাইল হস্তান্তর করা হয়।</p>
+                     <p>আপনার ফাইনাল রিভিউয়ের পর ওয়েবসাইট লাইভ করে সমস্ত ফাইল হস্তান্তর করা হয়।</p>
                  </div>
              </div>
         </section>
 
-        <!-- 6. অ্যাডমিন প্যানেল ডেমো দেখুন section (Constraint 2) -->
+        <!-- Demo Section -->
         <section id="demo" class="container text-center">
             <h2 class="section-title">অ্যাডমিন প্যানেল ডেমো দেখুন</h2>
             <p style="max-width: 600px; margin: 0 auto 30px;">আপনার অর্ডারগুলো সহজে ট্র্যাক ও ম্যানেজ করার জন্য আমাদের শক্তিশালী অ্যাডমিন প্যানেলটি ব্যবহার করুন। নিচের ভিডিওটি দেখুন:</p>
             <a href="#" id="admin-panel-video-link" class="btn btn-primary"><i class="fas fa-play-circle"></i> ডেমো ভিডিও দেখুন</a>
         </section>
         
-        <!-- 7. contace section (Constraint 2) -->
+        <!-- Contact Section -->
         <section id="contact" class="container">
             <h2 class="section-title">আজই আপনার প্রোজেক্ট শুরু করুন</h2>
-            <p>আপনার প্রোজেক্ট নিয়ে আলোচনার জন্য বা যেকোনো প্রশ্ন থাকলে সরাসরি আমাকে হোয়াটসঅ্যাপে মেসেজ দিন। আপনার ব্যবসার সফলতাই আমার লক্ষ্য।</p>
-            <a href="https://wa.me/8801748771039" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 30px;"><i class="fab fa-whatsapp"></i> এখনই যোগাযোগ করুন</a>
+            <p class="text-center mb-40">আপনার প্রোজেক্ট নিয়ে আলোচনার জন্য বা যেকোনো প্রশ্ন থাকলে সরাসরি আমাকে হোয়াটসঅ্যাপে মেসেজ দিন। আপনার ব্যবসার সফলতাই আমার লক্ষ্য।</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>ফোন</h4>
+                            <p>+880 1748 771039</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+880 1748 771039</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>ইমেইল</h4>
+                            <p>contact@webdevsm.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>লোকেশন</h4>
+                            <p>ঢাকা, বাংলাদেশ</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">আপনার নাম</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">আপনার ইমেইল</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">মেসেজ</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp এ মেসেজ পাঠান</button>
+                    </form>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -766,7 +1455,7 @@
             <span class="close-btn">&times;</span>
             <h3>Basic Package Details</h3>
             <ul class="modal-features">
-                <li><i class="fas fa-check-circle"></i> ফ্রি hosting ও SSL সার্টিফিকেট</li>
+                <li><i class="fas fa-check-circle"></i> ফ্রি <a href="#" id="hosting-link-3" class="color-accent">Free hosting details</a> ও SSL সার্টিফিকেট</li>
                 <li><i class="fas fa-check-circle"></i> ১ বার ফ্রি আপডেট</li>
                 <li><i class="fas fa-times-circle" style="color:#e74c3c;"></i> Meta pixel setup নেই</li>
                 <li><i class="fas fa-check-circle"></i> Order control with admin panel</li>
@@ -786,7 +1475,7 @@
             <span class="close-btn">&times;</span>
             <h3>Standard Package Details</h3>
             <ul class="modal-features">
-                <li><i class="fas fa-check-circle"></i> ফ্রি hosting ও SSL সার্টিফিকেট</li>
+                <li><i class="fas fa-check-circle"></i> ফ্রি <a href="#" id="hosting-link-4" class="color-accent">Free hosting details</a> ও SSL সার্টিফিকেট</li>
                 <li><i class="fas fa-check-circle"></i> Meta pixel setup</li>
                 <li><i class="fas fa-check-circle"></i> ৪ মাস টেকনিক্যাল সাপোর্ট</li>
                 <li><i class="fas fa-check-circle"></i> Google SEO (Bing নেই)</li>
@@ -815,7 +1504,7 @@
             <h4>Website Features:</h4>
              <ul class="modal-features">
                 <li><i class="fas fa-check-circle"></i> Image slider, Video embed, Dark/light mood, Gif annimition</li>
-                <li><i class="fas fa-check-circle"></i> আপনার সাইটের জন্য টিক দেওয়া সবগুলো ফিচার সিলেক্ট করতে পারবেন।</li>
+                <li><i class="fas fa-check-circle"></i> আপনার সাইটের জন্য টিক দেওয়া সবগুলো ফিচার সিলেক্ট করতে পারবেন।</li>
             </ul>
         </div>
     </div>
@@ -832,7 +1521,23 @@
             </div>
         </div>
     </div>
-
+    
+    <!-- Hosting Details Modal -->
+    <div id="hosting-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>আমাদের দেওয়া ফ্রি হোস্টিং:</h3>
+            <p><strong>দ্রুত লোডিং স্পিড:</strong> দিনে প্রথম 4000-5000 ভিজিটরের জন্য ওয়েবসাইট দ্রুত লোড হবে।</p>
+            <p><strong>সর্বত্র দ্রুত অ্যাক্সেস:</strong> বাংলাদেশের যেকোনো স্থান থেকে দ্রুত লোড হবে। স্পিড কেমন তা দেখতে ডেমো গুলো খুলে দেখুন।</p>
+            <p><strong>লাইফটাইম ফ্রি হোস্টিং + ডাটাবেস:</strong> একবার ব্যবহার করলে স্থায়ীভাবে ফ্রি।</p>
+            <p><strong>মাসিক অর্ডার লিমিট:</strong> সর্বোচ্চ 1000 অর্ডার প্রতি মাসে।</p>
+            <p><strong>আপডেট লিমিট:</strong> প্রতি সপ্তাহে 2 বার আপডেট করতে পারবেন। আপডেট মানে—সাইটের প্রোডাক্ট পরিবর্তন বা যেকোনো কনটেন্ট পরিবর্তন।</p>
+            <p><strong>আপনার প্রয়োজন যদি এই সীমার চেয়ে বেশি হয়, তাহলে অন্য কোন প্রিমিয়াম হোস্টিং ব্যবহার করতে হবে।</p>
+            <div class="text-center" style="margin-top: 20px;">
+                <button class="btn btn-primary close-hosting-modal">Close</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         // --- Intersection Observer for section animations ---
@@ -903,26 +1608,88 @@
              openModal('admin-video-modal');
         });
         
-        // --- Dark/Light Mode Toggle Logic (Constraint 3) ---
+        // --- Dark/Light Mode Toggle Logic ---
         const themeToggle = document.getElementById('theme-toggle');
         
-        // Check for saved theme in localStorage
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'light-mode') {
-            document.body.classList.add('light-mode');
-        }
-
+        // Set default theme to light mode
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light-mode');
+        
         themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
+            document.body.classList.toggle('dark-mode');
             
             // Save preference to localStorage
             let theme = 'dark-mode';
-            if (document.body.classList.contains('light-mode')) {
+            if (document.body.classList.contains('dark-mode')) {
+                theme = 'dark-mode';
+            } else {
                 theme = 'light-mode';
             }
             localStorage.setItem('theme', theme);
         });
-
+        
+        // --- Scroll to Top Button ---
+        const scrollTopBtn = document.getElementById('scroll-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // --- Contact Form Handler (Redirect to WhatsApp) ---
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `*নতুন প্রোজেক্টের জন্য মেসেজ*%0A%0A*নাম:* ${name}%0A*ইমেইল:* ${email}%0A*মেসেজ:* ${message}`;
+            
+            // WhatsApp URL with phone number and message
+            const whatsappUrl = `https://wa.me/8801748771039?text=${whatsappMessage}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            document.getElementById('contact-form').reset();
+        });
+        
+        // --- Hosting Details Modal ---
+        const hostingLinks = document.querySelectorAll('[id^="hosting-link-"]');
+        const hostingModal = document.getElementById('hosting-modal');
+        const closeHostingModalBtn = document.querySelector('.close-hosting-modal');
+        
+        hostingLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                hostingModal.style.display = 'block';
+            });
+        });
+        
+        closeHostingModalBtn.addEventListener('click', () => {
+            hostingModal.style.display = 'none';
+        });
+        
+        // Close hosting modal when clicking outside
+        window.addEventListener('click', (event) => {
+            if (event.target == hostingModal) {
+                hostingModal.style.display = 'none';
+            }
+        });
     </script>
 </body>
-</html>
+    </html>
