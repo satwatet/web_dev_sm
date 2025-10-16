@@ -7,6 +7,11 @@
     <meta name="description" content="Professional web developer specializing in high-converting landing pages that boost sales and build brand trust. Full-stack development with HTML, CSS, JS, PHP.">
     <meta name="keywords" content="web developer, landing page, high converting, full-stack, e-commerce, web design">
     <meta name="author" content="Sarowar Mahmod">
+    <meta property="og:title" content="Web_Dev_SM - High Converting Landing Page Developer">
+    <meta property="og:description" content="Professional web developer specializing in high-converting landing pages that boost sales and build brand trust.">
+    <meta property="og:image" content="https://i.ibb.co/bMQZ6JkP/snexy-Jzs-QSGbsas-Ixp-Ws-w.webp">
+    <meta property="og:url" content="https://sm-web.pages.dev/">
+    <meta property="og:type" content="website">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,6 +31,8 @@
             --modal-bg: rgba(255, 255, 255, 0.85);
             --box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
             --gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
         }
 
         /* Dark Mode Variables */
@@ -50,7 +57,8 @@
             font-family: 'Poppins', sans-serif;
             background: var(--primary-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7; /* Improved line height for readability */
+            font-size: 16px; /* Base font size */
             transition: background 0.5s, color 0.5s;
             overflow-x: hidden;
         }
@@ -68,6 +76,7 @@
         .mt-20 { margin-top: 20px; }
         .mb-20 { margin-bottom: 20px; }
         .mb-40 { margin-bottom: 40px; }
+        .mb-60 { margin-bottom: 60px; }
 
         /* Scroll to Top Button */
         .scroll-top {
@@ -85,7 +94,7 @@
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             z-index: 1000;
             box-shadow: var(--box-shadow);
         }
@@ -112,7 +121,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            transition: var(--transition);
         }
 
         body.dark-mode nav {
@@ -159,10 +168,11 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text-color);
-            transition: color 0.3s, transform 0.3s;
+            transition: var(--transition);
             padding: 5px 0;
             position: relative;
             font-weight: 500;
+            font-size: 1rem;
         }
         
         .nav-links a::after {
@@ -206,10 +216,10 @@
         .btn {
             padding: 12px 25px;
             margin: 10px 15px 10px 0;
-            border-radius: 5px;
+            border-radius: var(--border-radius);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: var(--transition);
             display: inline-block;
             cursor: pointer;
             text-transform: uppercase;
@@ -217,12 +227,12 @@
             letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
+            border: none;
         }
         
         .btn-primary {
              background-color: var(--accent-color);
              color: var(--primary-color);
-             border: 2px solid var(--accent-color);
              box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
         }
         
@@ -231,6 +241,7 @@
             color: var(--accent-color);
             transform: translateY(-3px);
             box-shadow: 0 7px 20px rgba(0, 123, 255, 0.4);
+            border: 2px solid var(--accent-color);
         }
 
         .btn-secondary {
@@ -281,7 +292,7 @@
         .hero-content {
             display: flex;
             flex-direction: column;
-            gap: 50px;
+            gap: 60px; /* Increased spacing */
         }
 
         .hero-main {
@@ -298,8 +309,8 @@
         
         .hero-text .greeting {
             color: var(--accent-color);
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem; /* Increased font size */
+            margin-bottom: 15px;
             display: block;
             font-weight: 500;
         }
@@ -314,14 +325,14 @@
         .hero-text h2 {
              font-size: clamp(1.5rem, 4vw, 2rem);
              color: var(--text-secondary);
-             margin: 5px 0 20px;
+             margin: 5px 0 25px; /* Increased margin */
              font-weight: 500;
         }
 
         .hero-text .tagline {
             font-size: 1.1rem;
             color: var(--text-secondary);
-            margin: 20px 0;
+            margin: 25px 0; /* Increased margin */
             max-width: 600px;
         }
         
@@ -335,7 +346,7 @@
             width: 100%;
             max-width: 300px;
             height: auto;
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             border: 2px solid var(--accent-color);
             box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
             transition: transform 0.5s;
@@ -349,18 +360,18 @@
         .hero-cards-summary {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 30px; /* Increased spacing */
             margin-top: 40px;
-            padding: 20px 0;
+            padding: 30px 0; /* Increased padding */
             border-top: 1px solid var(--secondary-color);
         }
 
         .summary-card {
             background: var(--secondary-color);
-            padding: 25px;
-            border-radius: 10px;
+            padding: 30px; /* Increased padding */
+            border-radius: var(--border-radius);
             border-left: 3px solid var(--accent-color);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: var(--transition);
             box-shadow: var(--box-shadow);
         }
 
@@ -370,7 +381,7 @@
         }
 
         .summary-card i {
-            font-size: 1.8rem;
+            font-size: 2rem; /* Increased icon size */
             color: var(--accent-color);
             margin-bottom: 15px;
         }
@@ -378,13 +389,13 @@
         .summary-card h4 {
             color: var(--text-color);
             margin: 5px 0;
-            font-size: 1.2rem;
+            font-size: 1.3rem; /* Increased font size */
             font-weight: 600;
         }
 
         .summary-card p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 1rem; /* Increased font size */
             margin: 0;
         }
 
@@ -404,7 +415,7 @@
         h2.section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 50px;
+            margin-bottom: 60px; /* Increased margin */
             color: var(--text-color);
             position: relative;
             display: inline-block;
@@ -430,15 +441,15 @@
         #why-landing-page .reasons-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px;
+            gap: 30px; /* Increased spacing */
         }
         
         #why-landing-page .reason-card {
             background: var(--secondary-color);
-            padding: 30px;
-            border-radius: 10px;
+            padding: 30px; /* Increased padding */
+            border-radius: var(--border-radius);
             border-top: 5px solid var(--accent-color);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: var(--transition);
             box-shadow: var(--box-shadow);
         }
         
@@ -449,7 +460,7 @@
         
         #why-landing-page .reason-card h4 {
             color: var(--accent-color);
-            font-size: 1.3rem;
+            font-size: 1.4rem; /* Increased font size */
             margin-top: 0;
             margin-bottom: 15px;
             display: flex;
@@ -460,19 +471,21 @@
         #why-landing-page .reason-card p {
             color: var(--text-secondary);
             margin: 0;
+            font-size: 1rem; /* Increased font size */
         }
         
         /* Tech Stack Section */
         #tech-stack {
             background: var(--secondary-color);
-            border-radius: 10px;
+            border-radius: var(--border-radius);
+            padding: 80px 0; /* Increased padding */
         }
         
         .tech-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
+            gap: 40px; /* Increased spacing */
             margin-top: 40px;
         }
         
@@ -481,7 +494,7 @@
             flex-direction: column;
             align-items: center;
             width: 100px;
-            transition: transform 0.3s;
+            transition: var(--transition);
         }
         
         .tech-item:hover {
@@ -489,30 +502,210 @@
         }
         
         .tech-item i {
-            font-size: 3rem;
+            font-size: 3.5rem; /* Increased icon size */
             color: var(--accent-color);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
         .tech-item span {
             color: var(--text-color);
             font-weight: 500;
+            font-size: 1rem; /* Increased font size */
+        }
+        
+        /* Projects Section */
+        .projects-container { 
+            position: relative; 
+        }
+        
+        .projects-gallery {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 30px;
+            padding-bottom: 25px;
+        }
+        
+        .project-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            background: var(--secondary-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            border-bottom: 2px solid var(--accent-color); 
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .project-info { 
+            padding: 25px; /* Increased padding */
+            text-align: center; 
+        }
+        
+        .project-info h3 { 
+            margin-top: 0; 
+            color: var(--text-color);
+            font-size: 1.4rem; /* Increased font size */
+        }
+        
+        .project-info p {
+            color: var(--text-secondary);
+            margin-bottom: 20px; /* Increased margin */
+            font-size: 1rem; /* Increased font size */
+        }
+        
+        .project-case-study {
+            text-align: left;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-case-study h4 {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-case-study p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-case-study ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .project-case-study li {
+            margin-bottom: 5px;
+        }
+        
+        .case-study-toggle {
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .case-study-toggle:hover {
+            text-decoration: underline;
+        }
+        
+        /* Process Section */
+        #process .process-steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        #process .step-card {
+            flex-basis: 300px;
+            text-align: center;
+            background: var(--secondary-color);
+            padding: 30px; /* Increased padding */
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+        }
+        
+        #process .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+        
+        #process .step-card i {
+            font-size: 3.5rem; /* Increased icon size */
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        #process .step-card h4 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        
+        #process .step-card p {
+            color: var(--text-secondary);
+            font-size: 1rem; /* Increased font size */
+        }
+        
+        /* Benefits Section */
+        .why-choose-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px; /* Increased spacing */
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            background: var(--secondary-color);
+            padding: 25px; /* Increased padding */
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--accent-color);
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-item i {
+            font-size: 2.5rem; /* Increased icon size */
+            color: var(--accent-color);
+            margin-right: 15px;
+        }
+        
+        .feature-item p { 
+            margin: 0; 
+            font-weight: 500;
+            color: var(--text-color);
+            font-size: 1rem; /* Increased font size */
         }
         
         /* Services Section */
         .services-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
+            gap: 40px; /* Increased spacing */
         }
         
         .service-card { 
             background: var(--secondary-color); 
-            padding: 30px; 
-            border-radius: 10px; 
+            padding: 35px; /* Increased padding */
+            border-radius: var(--border-radius); 
             box-shadow: var(--box-shadow); 
             text-align: center;
-            transition: all 0.3s;
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
@@ -543,14 +736,14 @@
         .service-card h3 { 
             color: var(--text-color); 
             margin-top: 0; 
-            font-size: 1.8rem; 
+            font-size: 1.9rem; /* Increased font size */
             font-weight: 600;
         }
         
         .service-card .price { 
-            font-size: 2.2rem; 
+            font-size: 2.4rem; /* Increased font size */
             font-weight: bold; 
-            margin-bottom: 15px;
+            margin-bottom: 20px; /* Increased margin */
             color: var(--accent-color);
         }
         
@@ -558,14 +751,15 @@
             list-style: none; 
             padding: 0; 
             text-align: left; 
-            margin: 20px 0; 
+            margin: 25px 0; /* Increased margin */
         }
         
         .service-card ul li { 
-            margin-bottom: 12px; 
+            margin-bottom: 15px; /* Increased margin */
             color: var(--text-secondary); 
             display: flex;
             align-items: flex-start;
+            font-size: 1rem; /* Increased font size */
         }
         
         .service-card ul li i { 
@@ -578,7 +772,7 @@
             display: flex; 
             justify-content: center; 
             flex-wrap: wrap; 
-            margin-top: 20px; 
+            margin-top: 25px; /* Increased margin */
         }
         
         .recommended-badge {
@@ -594,152 +788,116 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.2);
         }
         
-        /* Projects Section */
-        .projects-container { 
-            position: relative; 
-        }
-        
-        .projects-gallery {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 30px;
-            padding-bottom: 25px;
-        }
-        
-        .project-card {
-            flex: 0 0 320px;
-            scroll-snap-align: start;
-            background: var(--secondary-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .project-card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .project-card img { 
-            width: 100%; 
-            height: 200px; 
-            object-fit: cover; 
-            border-bottom: 2px solid var(--accent-color); 
-            transition: transform 0.3s;
-        }
-        
-        .project-card:hover img {
-            transform: scale(1.05);
-        }
-        
-        .project-info { 
-            padding: 20px; 
-            text-align: center; 
-        }
-        
-        .project-info h3 { 
-            margin-top: 0; 
-            color: var(--text-color);
-            font-size: 1.3rem;
-        }
-        
-        .project-info p {
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-        
-        /* Process Section */
-        #process .process-steps {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        #process .step-card {
-            flex-basis: 300px;
-            text-align: center;
-            background: var(--secondary-color);
-            padding: 30px;
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: var(--box-shadow);
-        }
-        
-        #process .step-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
-        }
-        
-        #process .step-card i {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-        
-        #process .step-card h4 {
-            font-size: 1.5rem;
-            color: var(--text-color);
-            margin-top: 10px;
-            margin-bottom: 15px;
-        }
-        
-        #process .step-card p {
-            color: var(--text-secondary);
-        }
-        
-        /* Demo Section */
-        #demo {
-             background: var(--secondary-color);
-             padding: 100px 0;
-             border-radius: 10px;
-             margin-top: 50px;
-        }
-        
-        /* Benefits Section */
-        .why-choose-us-grid {
+        /* Admin Panel Products */
+        .admin-products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
         }
         
-        .feature-item {
-            display: flex;
-            align-items: center;
-            background: var(--secondary-color);
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 5px solid var(--accent-color);
-            transition: transform 0.3s, box-shadow 0.3s;
+        .admin-product-card {
+            background: var(--primary-color);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            text-align: center;
             box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
         
-        .feature-item:hover {
-            transform: translateY(-5px);
+        .admin-product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent-color);
+        }
+        
+        .admin-product-card.premium::before {
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+        }
+        
+        .admin-product-card:hover {
+            transform: translateY(-10px);
             box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
         }
         
-        .feature-item i {
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-right: 15px;
+        .admin-product-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
         }
         
-        .feature-item p { 
-            margin: 0; 
-            font-weight: 500;
-            color: var(--text-color);
+        .admin-product-card .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .admin-product-card .price.free {
+            color: #28a745;
+        }
+        
+        .admin-product-card .features {
+            text-align: left;
+            margin: 30px 0;
+        }
+        
+        .admin-product-card .features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .admin-product-card .features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            color: var(--text-secondary);
+        }
+        
+        .admin-product-card .features li i {
+            color: var(--accent-color);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        .admin-product-card .badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #28a745;
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: 600;
+            font-size: 0.8rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .admin-product-card.premium .badge {
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+        }
+        
+        .admin-product-card .note {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 20px;
+            padding: 15px;
+            background: var(--secondary-color);
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--accent-color);
         }
         
         /* Contact Section */
         #contact {
             background: var(--secondary-color);
-            border-radius: 10px;
+            border-radius: var(--border-radius);
+            padding: 80px 0; /* Increased padding */
         }
         
         .contact-container {
@@ -752,7 +910,7 @@
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px; /* Increased spacing */
         }
         
         .contact-item {
@@ -762,7 +920,7 @@
         }
         
         .contact-item i {
-            font-size: 1.5rem;
+            font-size: 1.8rem; /* Increased icon size */
             color: var(--accent-color);
             width: 40px;
             text-align: center;
@@ -771,42 +929,45 @@
         .contact-item h4 {
             margin: 0;
             color: var(--text-color);
-            font-size: 1.1rem;
+            font-size: 1.2rem; /* Increased font size */
         }
         
         .contact-item p {
             margin: 0;
             color: var(--text-secondary);
+            font-size: 1rem; /* Increased font size */
         }
         
         .contact-form {
             background: var(--primary-color);
-            padding: 30px;
-            border-radius: 10px;
+            padding: 35px; /* Increased padding */
+            border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px; /* Increased margin */
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px; /* Increased margin */
             color: var(--text-color);
             font-weight: 500;
+            font-size: 1rem; /* Increased font size */
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 15px; /* Increased padding */
             background: var(--secondary-color);
             border: 1px solid rgba(0, 123, 255, 0.3);
-            border-radius: 5px;
+            border-radius: var(--border-radius);
             color: var(--text-color);
             font-family: inherit;
             transition: border-color 0.3s;
+            font-size: 1rem; /* Increased font size */
         }
         
         .form-group input:focus,
@@ -831,12 +992,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 45px; /* Increased size */
+            height: 45px; /* Increased size */
             background: var(--accent-color);
             color: var(--primary-color);
             border-radius: 50%;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: var(--transition);
         }
         
         .social-links a:hover {
@@ -861,11 +1022,11 @@
         .modal-content { 
             background-color: var(--secondary-color); 
             margin: 5% auto; 
-            padding: 30px; 
+            padding: 35px; /* Increased padding */
             border: 1px solid var(--accent-color); 
             width: 90%; 
             max-width: 600px; 
-            border-radius: 10px; 
+            border-radius: var(--border-radius); 
             position: relative; 
             animation: slideIn 0.5s; 
         }
@@ -898,7 +1059,7 @@
             width: 100%; 
             height: 100%; 
             border: none; 
-            border-radius: 5px; 
+            border-radius: var(--border-radius); 
         }
         
         @keyframes slideIn { 
@@ -925,11 +1086,13 @@
         #hosting-modal h3 {
             color: var(--accent-color);
             margin-bottom: 20px;
+            font-size: 1.5rem; /* Increased font size */
         }
         
         #hosting-modal p {
             margin-bottom: 15px;
-            line-height: 1.6;
+            line-height: 1.7; /* Improved line height */
+            font-size: 1rem; /* Increased font size */
         }
         
         #hosting-modal ul {
@@ -939,24 +1102,27 @@
         
         #hosting-modal li {
             margin-bottom: 10px;
+            font-size: 1rem; /* Increased font size */
         }
         
         /* Footer */
         footer {
-            padding: 40px 0;
+            padding: 50px 0; /* Increased padding */
             text-align: center;
             border-top: 1px solid var(--secondary-color);
         }
         
         footer p {
             color: var(--text-secondary);
-            margin: 5px 0;
+            margin: 10px 0; /* Increased margin */
+            font-size: 1rem; /* Increased font size */
         }
         
         footer a {
             color: var(--accent-color);
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 1rem; /* Increased font size */
         }
         
         footer a:hover {
@@ -967,6 +1133,34 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+        
+        /* 404 Page */
+        .error-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .error-page h1 {
+            font-size: 8rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .error-page h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .error-page p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
         }
         
         /* Responsive */
@@ -1040,6 +1234,10 @@
             .tech-item i {
                 font-size: 2.5rem;
             }
+            
+            .admin-products {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1089,8 +1287,8 @@
                 <li><a href="#why-landing-page">কেন Landing Page</a></li>
                 <li><a href="#tech-stack">Tech Stack</a></li>
                 <li><a href="#projects">প্রোজেক্ট</a></li>
-                <li><a href="#benefits">সুবিধা</a></li>
                 <li><a href="#services">সার্ভিস</a></li>
+                <li><a href="#demo">Admin Panel</a></li>
                 <li><a href="#contact">যোগাযোগ</a></li>
             </ul>
             <div class="hamburger">
@@ -1212,6 +1410,22 @@
                             <h3>Perfume (Advanced)</h3>
                             <p>একটি প্রিমিয়াম ই-কমার্স ল্যান্ডিং পেজ যা লাক্সারি পারফিউম ব্র্যান্ডের জন্য তৈরি।</p>
                             <a href="https://satwatet.github.io/perfume_advanced/" target="_blank" class="btn btn-primary">ডেমো দেখুন</a>
+                            <button class="case-study-toggle" data-project="perfume">
+                                <i class="fas fa-chevron-down"></i> কেস স্টাডি দেখুন
+                            </button>
+                            <div class="project-case-study" id="perfume-case-study" style="display: none;">
+                                <h4>চ্যালেঞ্জ:</h4>
+                                <p>একটি লাক্সারি পারফিউম ব্র্যান্ডের জন্য এমন একটি ল্যান্ডিং পেজ তৈরি করা যা ব্র্যান্ডের মর্যাদা বজায় রাখে এবং উচ্চ কনভার্শন রেট নিশ্চিত করে।</p>
+                                <h4>সমাধান:</h4>
+                                <ul>
+                                    <li>প্রিমিয়াম ডিজাইন এলিমেন্ট ব্যবহার করা</li>
+                                    <li>প্রোডাক্টের বিস্তারিত বর্ণনা এবং উচ্চমানের ইমেজ</li>
+                                    <li>কাস্টমার রিভিউ এবং টেস্টিমোনিয়াল সেকশন</li>
+                                    <li>একাধিক পেমেন্ট অপশন</li>
+                                </ul>
+                                <h4>ফলাফল:</h4>
+                                <p>ল্যান্ডিং পেজটি চালু হওয়ার পর প্রথম মাসেই বিক্রি ৪৫% বৃদ্ধি পায় এবং কনভার্শন রেট ৩.২% থেকে ৫.৮% এ উন্নীত হয়।</p>
+                            </div>
                         </div>
                     </div>
                      <div class="project-card">
@@ -1220,6 +1434,22 @@
                             <h3>Nut (Standard)</h3>
                             <p>একটি প্রফেশনাল ল্যান্ডিং পেজ যা হেলথ সাপ্লিমেন্ট ব্র্যান্ডের জন্য তৈরি।</p>
                              <a href="https://satwatet.github.io/nut_standard/" target="_blank" class="btn btn-primary">ডেমো দেখুন</a>
+                            <button class="case-study-toggle" data-project="nut">
+                                <i class="fas fa-chevron-down"></i> কেস স্টাডি দেখুন
+                            </button>
+                            <div class="project-case-study" id="nut-case-study" style="display: none;">
+                                <h4>চ্যালেঞ্জ:</h4>
+                                <p>একটি হেলথ সাপ্লিমেন্ট ব্র্যান্ডের জন্য এমন একটি ল্যান্ডিং পেজ তৈরি করা যা প্রোডাক্টের গুণাগুণ এবং স্বাস্থ্য উপকারিতা তুলে ধরে।</p>
+                                <h4>সমাধান:</h4>
+                                <ul>
+                                    <li>বিজ্ঞানসম্মত তথ্য এবং গবেষণার উপর ভিত্তি করে কন্টেন্ট</li>
+                                    <li>প্রোডাক্টের উপাদান এবং ব্যবহারবিধি বিস্তারিতভাবে উল্লেখ</li>
+                                    <li>বিশেষজ্ঞদের মতামত এবং সার্টিফিকেশন</li>
+                                    <li>সীমিত সময়ের অফার এবং ডিসকাউন্ট</li>
+                                </ul>
+                                <h4>ফলাফল:</h4>
+                                <p>ল্যান্ডিং পেজটি চালু হওয়ার পর প্রথম দুই মাসে বিক্রি ৩৫% বৃদ্ধি পায় এবং কাস্টমার রিটেনশন রেট ২৫% বৃদ্ধি পায়।</p>
+                            </div>
                         </div>
                     </div>
                      <div class="project-card">
@@ -1228,6 +1458,22 @@
                             <h3>Honey (Advanced)</h3>
                             <p>একটি সুন্দর ল্যান্ডিং পেজ যা অর্গানিক হানি ব্র্যান্ডের জন্য তৈরি।</p>
                              <a href="https://satwatet.github.io/honey_advanced/" target="_blank" class="btn btn-primary">ডেমো দেখুন</a>
+                            <button class="case-study-toggle" data-project="honey">
+                                <i class="fas fa-chevron-down"></i> কেস স্টাডি দেখুন
+                            </button>
+                            <div class="project-case-study" id="honey-case-study" style="display: none;">
+                                <h4>চ্যালেঞ্জ:</h4>
+                                <p>একটি অর্গানিক হানি ব্র্যান্ডের জন্য এমন একটি ল্যান্ডিং পেজ তৈরি করা যা প্রোডাক্টের প্রাকৃতিক গুণাবলী এবং স্বাস্থ্য উপকারিতা তুলে ধরে।</p>
+                                <h4>সমাধান:</h4>
+                                <ul>
+                                    <li>প্রাকৃতিক এবং জৈব চাষাবাদ পদ্ধতির উপর জোর দেওয়া</li>
+                                    <li>মৌমাছি পালন এবং মধু সংগ্রহ প্রক্রিয়া দেখানো</li>
+                                    <li>পুষ্টিগুণ এবং স্বাস্থ্য উপকারিতার বিস্তারিত বর্ণনা</li>
+                                    <li>বিভিন্ন ধরনের মধু এবং তাদের ব্যবহার</li>
+                                </ul>
+                                <h4>ফলাফল:</h4>
+                                <p>ল্যান্ডিং পেজটি চালু হওয়ার পর প্রথম তিন মাসে বিক্রি ৫০% বৃদ্ধি পায় এবং রিপিট কাস্টমার ৪০% বৃদ্ধি পায়।</p>
+                            </div>
                         </div>
                     </div>
                     <div class="project-card">
@@ -1236,6 +1482,22 @@
                             <h3>Perfume (Standard)</h3>
                             <p>একটি মার্জিত ল্যান্ডিং পেজ যা পারফিউম ব্র্যান্ডের জন্য তৈরি।</p>
                              <a href="https://sarowar.top/" target="_blank" class="btn btn-primary">ডেমো দেখুন</a>
+                            <button class="case-study-toggle" data-project="perfume-standard">
+                                <i class="fas fa-chevron-down"></i> কেস স্টাডি দেখুন
+                            </button>
+                            <div class="project-case-study" id="perfume-standard-case-study" style="display: none;">
+                                <h4>চ্যালেঞ্জ:</h4>
+                                <p>একটি মাঝারি মূল্যের পারফিউম ব্র্যান্ডের জন্য এমন একটি ল্যান্ডিং পেজ তৈরি করা যা মানের সাথে সাশ্রয়ী মূল্যের ভারসাম্য রাখে।</p>
+                                <h4>সমাধান:</h4>
+                                <ul>
+                                    <li>আকর্ষণীয় ডিজাইন এবং ভিজ্যুয়াল এলিমেন্ট</li>
+                                    <li>বিভিন্ন ধরনের পারফিউম এবং তাদের বৈশিষ্ট্য</li>
+                                    <li>বিশেষ অফার এবং প্যাকেজ ডিল</li>
+                                    <li>কাস্টমার রিভিউ এবং রেটিং</li>
+                                </ul>
+                                <h4>ফলাফল:</h4>
+                                <p>ল্যান্ডিং পেজটি চালু হওয়ার পর প্রথম মাসেই বিক্রি ৩০% বৃদ্ধি পায় এবং কনভার্শন রেট ২.৮% থেকে ৪.৫% এ উন্নীত হয়।</p>
+                            </div>
                         </div>
                     </div>
                      <div class="project-card">
@@ -1244,33 +1506,26 @@
                             <h3>বাদামখাজা (Basic)</h3>
                             <p>একটি সিম্পল কিন্তু কার্যকর ল্যান্ডিং পেজ যা ট্র্যাডিশনাল মিষ্টির জন্য।</p>
                              <a href="https://satwatet.github.io/-_-_basic/" target="_blank" class="btn btn-primary">ডেমো দেখুন</a>
+                            <button class="case-study-toggle" data-project="badam-khaja">
+                                <i class="fas fa-chevron-down"></i> কেস স্টাডি দেখুন
+                            </button>
+                            <div class="project-case-study" id="badam-khaja-case-study" style="display: none;">
+                                <h4>চ্যালেঞ্জ:</h4>
+                                <p>একটি ট্র্যাডিশনাল মিষ্টি বাদামখাজার জন্য এমন একটি ল্যান্ডিং পেজ তৈরি করা যা ঐতিহ্যবাহী স্বাদ এবং গুণমান তুলে ধরে।</p>
+                                <h4>সমাধান:</h4>
+                                <ul>
+                                    <li>ঐতিহ্যবাহী রেসিপি এবং উপাদানের বর্ণনা</li>
+                                    <li>প্রোডাক্টের ইতিহাস এবং সাংস্কৃতিক গুরুত্ব</li>
+                                    <li>বিভিন্ন প্যাকেজিং অপশন এবং উপহার</li>
+                                    <li>বিশেষ উৎসব এবং ছাড়ের অফার</li>
+                                </ul>
+                                <h4>ফলাফল:</h4>
+                                <p>ল্যান্ডিং পেজটি চালু হওয়ার পর প্রথম মাসেই বিক্রি ২৫% বৃদ্ধি পায় এবং নতুন কাস্টমার ৩৫% বৃদ্ধি পায়।</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Benefits Section -->
-        <section id="benefits" class="container">
-            <h2 class="section-title">আমার ক্লায়েন্টদের জন্য বিশেষ সুবিধা</h2>
-             <div class="why-choose-us-grid">
-                 <div class="feature-item">
-                     <i class="fas fa-shield-alt"></i>
-                     <p>১ মাসের ফুল সাপোর্ট ও ৬ মাসের ফ্রি রিপ্লেসমেন্ট সুবিধা।</p>
-                 </div>
-                 <div class="feature-item">
-                     <i class="fas fa-rocket"></i>
-                     <p>SEO অপটিমাইজেশন ও দ্রুত লোডিং গ্যারান্টি।</p>
-                 </div>
-                 <div class="feature-item">
-                     <i class="fas fa-database"></i>
-                     <p>লাইফটাইম ফ্রি <a href="#" id="hosting-link-1" class="color-accent">Free hosting details</a> এবং ডাটাবেস সুবিধা।</p>
-                 </div>
-                 <div class="feature-item">
-                     <i class="fas fa-bullseye"></i>
-                     <p>ফেসবুক পিক্সেল ও গুগল অ্যানালিটিক্স ইন্টিগ্রেশন (ট্র্যাকিং)।</p>
-                 </div>
-             </div>
         </section>
 
         <!-- Services Section -->
@@ -1340,6 +1595,84 @@
           </div>
         </section>
 
+        <!-- Admin Panel Demo Section -->
+        <section id="demo" class="container">
+            <h2 class="section-title">Admin Panel Demo</h2>
+            <p class="text-center mb-40" style="max-width: 700px; margin: 0 auto 60px;">আমাদের শক্তিশালী এবং ব্যবহারকারী-বান্ধব Admin Panel গুলো দেখুন। যেকোনো ল্যান্ডিং পেজের সাথে সহজেই ইন্টিগ্রেট করা যায় এবং অর্ডার ম্যানেজমেন্ট করা খুবই সহজ হয়।</p>
+            
+            <div class="admin-products">
+                <!-- Basic Admin Panel -->
+                <div class="admin-product-card">
+                    <div class="badge">Free</div>
+                    <h3>Basic Admin Panel</h3>
+                    <div class="price free">ফ্রি</div>
+                    <div class="features">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> অর্ডার ম্যানেজমেন্ট</li>
+                            <li><i class="fas fa-check-circle"></i> কাস্টমার তথ্য দেখা</li>
+                            <li><i class="fas fa-check-circle"></i> সিম্পল ড্যাশবোর্ড</li>
+                            <li><i class="fas fa-check-circle"></i> মোবাইল রেসপন্সিভ</li>
+                            <li><i class="fas fa-times-circle" style="color:#e74c3c;"></i> অ্যাডভান্সড রিপোর্ট</li>
+                            <li><i class="fas fa-times-circle" style="color:#e74c3c;"></i> মাল্টি-ইউজার</li>
+                        </ul>
+                    </div>
+                    <div class="note">
+                        <i class="fas fa-info-circle"></i> এই সাইটে order করে admin panel test করতে পারে: <a href="https://www.sarowar.top" target="_blank" class="color-accent">www.sarowar.top</a>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://sarwarn8n-gif.github.io/admin_panel_test/" target="_blank" class="btn btn-primary">ডেমো দেখুন</a>
+                        <a href="https://wa.me/8801748771039?text=আমি Basic Admin Panel নিতে চাই" target="_blank" class="btn btn-secondary">অর্ডার করুন</a>
+                    </div>
+                </div>
+                
+                <!-- Premium Admin Panel -->
+                <div class="admin-product-card premium">
+                    <div class="badge">Popular</div>
+                    <h3>Premium Admin Panel</h3>
+                    <div class="price">৳4550</div>
+                    <div class="features">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> সব Basic ফিচার +</li>
+                            <li><i class="fas fa-check-circle"></i> অ্যাডভান্সড ড্যাশবোর্ড</li>
+                            <li><i class="fas fa-check-circle"></i> সেলস রিপোর্ট ও অ্যানালিটিক্স</li>
+                            <li><i class="fas fa-check-circle"></i> মাল্টি-ইউজার অ্যাক্সেস</li>
+                            <li><i class="fas fa-check-circle"></i> স্টক ম্যানেজমেন্ট</li>
+                            <li><i class="fas fa-check-circle"></i> অটোমেটিক ব্যাকআপ</li>
+                            <li><i class="fas fa-check-circle"></i> ইমেইল নোটিফিকেশন</li>
+                            <li><i class="fas fa-check-circle"></i> website কন্টেন্ট update</li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://sarwarn8n-gif.github.io/admin_primium/" target="_blank" class="btn btn-primary">ডেমো দেখুন</a>
+                        <a href="https://wa.me/8801748771039?text=আমি Premium Admin Panel নিতে চাই" target="_blank" class="btn btn-secondary">অর্ডার করুন</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="container">
+            <h2 class="section-title">আমার ক্লায়েন্টদের জন্য বিশেষ সুবিধা</h2>
+             <div class="why-choose-us-grid">
+                 <div class="feature-item">
+                     <i class="fas fa-shield-alt"></i>
+                     <p>১ মাসের ফুল সাপোর্ট ও ৬ মাসের ফ্রি রিপ্লেসমেন্ট সুবিধা।</p>
+                 </div>
+                 <div class="feature-item">
+                     <i class="fas fa-rocket"></i>
+                     <p>SEO অপটিমাইজেশন ও দ্রুত লোডিং গ্যারান্টি।</p>
+                 </div>
+                 <div class="feature-item">
+                     <i class="fas fa-database"></i>
+                     <p>লাইফটাইম ফ্রি <a href="#" id="hosting-link-1" class="color-accent">Free hosting details</a> এবং ডাটাবেস সুবিধা।</p>
+                 </div>
+                 <div class="feature-item">
+                     <i class="fas fa-bullseye"></i>
+                     <p>ফেসবুক পিক্সেল ও গুগল অ্যানালিটিক্স ইন্টিগ্রেশন (ট্র্যাকিং)।</p>
+                 </div>
+             </div>
+        </section>
+
         <!-- Process Section -->
         <section id="process" class="container text-center">
              <h2 class="section-title">কাজের প্রক্রিয়া: খুব সহজ ৩টি ধাপ</h2>
@@ -1360,13 +1693,6 @@
                      <p>আপনার ফাইনাল রিভিউয়ের পর ওয়েবসাইট লাইভ করে সমস্ত ফাইল হস্তান্তর করা হয়।</p>
                  </div>
              </div>
-        </section>
-
-        <!-- Demo Section -->
-        <section id="demo" class="container text-center">
-            <h2 class="section-title">অ্যাডমিন প্যানেল ডেমো দেখুন</h2>
-            <p style="max-width: 600px; margin: 0 auto 30px;">আপনার অর্ডারগুলো সহজে ট্র্যাক ও ম্যানেজ করার জন্য আমাদের শক্তিশালী অ্যাডমিন প্যানেলটি ব্যবহার করুন। নিচের ভিডিওটি দেখুন:</p>
-            <a href="#" id="admin-panel-video-link" class="btn btn-primary"><i class="fas fa-play-circle"></i> ডেমো ভিডিও দেখুন</a>
         </section>
         
         <!-- Contact Section -->
@@ -1509,19 +1835,6 @@
         </div>
     </div>
     
-    <div id="admin-video-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h3>Admin Panel Overview</h3>
-            <div class="video-container">
-                 <iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/zzdkyl?" width="100%"></iframe>
-            </div>
-            <div class="text-center" style="margin-top: 20px;">
-                 <a href="https://wa.me/8801748771039" target="_blank" class="btn btn-primary"><i class="fab fa-whatsapp"></i> অর্ডার করতে মেসেজ দিন</a>
-            </div>
-        </div>
-    </div>
-    
     <!-- Hosting Details Modal -->
     <div id="hosting-modal" class="modal">
         <div class="modal-content">
@@ -1537,6 +1850,14 @@
                 <button class="btn btn-primary close-hosting-modal">Close</button>
             </div>
         </div>
+    </div>
+    
+    <!-- 404 Error Page (Hidden by default) -->
+    <div id="error-page" class="error-page" style="display: none;">
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+        <p>Sorry, the page you are looking for does not exist. Please check the URL or go back to the homepage.</p>
+        <a href="#home" class="btn btn-primary">Go to Homepage</a>
     </div>
 
     <script>
@@ -1600,12 +1921,6 @@
                     closeModal(modal);
                 }
             });
-        });
-        
-        // --- Admin Video Link Handler ---
-        document.getElementById('admin-panel-video-link').addEventListener('click', (e) => {
-             e.preventDefault();
-             openModal('admin-video-modal');
         });
         
         // --- Dark/Light Mode Toggle Logic ---
@@ -1690,6 +2005,43 @@
                 hostingModal.style.display = 'none';
             }
         });
+        
+        // --- Case Study Toggle ---
+        const caseStudyToggles = document.querySelectorAll('.case-study-toggle');
+        
+        caseStudyToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const projectId = toggle.getAttribute('data-project');
+                const caseStudy = document.getElementById(`${projectId}-case-study`);
+                
+                if (caseStudy.style.display === 'none') {
+                    caseStudy.style.display = 'block';
+                    toggle.innerHTML = '<i class="fas fa-chevron-up"></i> কেস স্টাডি লুকান';
+                } else {
+                    caseStudy.style.display = 'none';
+                    toggle.innerHTML = '<i class="fas fa-chevron-down"></i> কেস স্টাডি দেখুন';
+                }
+            });
+        });
+        
+        // --- 404 Page Handler ---
+        function checkForBrokenLinks() {
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('error', () => {
+                    show404Page();
+                });
+            });
+        }
+        
+        function show404Page() {
+            document.getElementById('error-page').style.display = 'flex';
+            document.querySelector('main').style.display = 'none';
+            document.querySelector('footer').style.display = 'none';
+        }
+        
+        // Initialize broken link checker
+        checkForBrokenLinks();
     </script>
 </body>
-    </html>
+</html>
